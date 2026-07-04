@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/inject-spec.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/spec-coverage.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/check-spec-before-commit.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
